@@ -21,14 +21,15 @@ public class Player : MonoBehaviour
 
     void Move()
     {
-        if(Input.touchCount>0)
+        if(Input.touchCount>0)  //checks if the we touches the screen
         {
             
-            Touch touch = Input.GetTouch(0);
+            Touch touch = Input.GetTouch(0); //zero is for the 1st screen touch.
             Camera gameCamera = Camera.main;
 
             var moveX = gameCamera.ScreenToWorldPoint(touch.position).x;
-            var moveY = gameCamera.ScreenToWorldPoint(touch.position).y + offsetY;
+            var moveY = gameCamera.ScreenToWorldPoint(touch.position).y + offsetY; 
+            //offset is for visibility of player ship
             transform.position = new Vector2(moveX, moveY);
            
         }
