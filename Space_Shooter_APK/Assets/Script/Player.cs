@@ -7,6 +7,9 @@ public class Player : MonoBehaviour
 
     //configuration parameter
     [SerializeField] float offsetY = 1f;
+    [SerializeField] GameObject laserPlayer;
+    [SerializeField] float fireRate = 1f;
+    [SerializeField] float yOffsetoflaser;
 
     void Start()
     {
@@ -16,7 +19,7 @@ public class Player : MonoBehaviour
    
     void Update()
     {
-        Move();
+        Move();       
     }
 
     void Move()
@@ -30,8 +33,17 @@ public class Player : MonoBehaviour
             var moveX = gameCamera.ScreenToWorldPoint(touch.position).x;
             var moveY = gameCamera.ScreenToWorldPoint(touch.position).y + offsetY; 
             //offset is for visibility of player ship
-            transform.position = new Vector2(moveX, moveY);
+            transform.position = new Vector3(moveX, moveY,-1f);
+            
            
         }
+    }
+
+    public void Fire()
+    {
+        Vector3 laserPos = new Vector3(transform.position.x, transform.position.y + yOffsetoflaser, transform.position.z);
+        GameObject laser_001 = Instantiate(laserPlayer,laserPos , Quaternion.identity) as GameObject;
+        laser_001.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, fireRate);
+        Destroy(laser_001, 2f);
     }
 }
