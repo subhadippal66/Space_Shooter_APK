@@ -5,6 +5,7 @@ using UnityEngine;
 public class Controller_level : MonoBehaviour
 {
     Player player_;
+    bool isButtonDown = false;
 
 
     void Start()
@@ -15,11 +16,18 @@ public class Controller_level : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (isButtonDown)
+        {
+            player_.Fire();
+        }
     }
 
     public void FireLaser()
     {
-        player_.Fire();
+        isButtonDown = true;
+    }
+    public void StopFiring()
+    {
+        isButtonDown = false;
     }
 }

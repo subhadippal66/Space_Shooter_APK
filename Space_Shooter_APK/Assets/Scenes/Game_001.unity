@@ -300,6 +300,7 @@ GameObject:
   - component: {fileID: 799664388}
   - component: {fileID: 799664387}
   - component: {fileID: 799664386}
+  - component: {fileID: 799664389}
   m_Layer: 5
   m_Name: Fire_Button
   m_TagString: Untagged
@@ -368,19 +369,7 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 799664387}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 1591901714}
-        m_TargetAssemblyTypeName: Controller_level, Assembly-CSharp
-        m_MethodName: FireLaser
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
 --- !u!114 &799664387
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -419,6 +408,51 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 799664384}
   m_CullTransparentMesh: 0
+--- !u!114 &799664389
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 799664384}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: d0b148fe25e99eb48b9724523833bab1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Delegates:
+  - eventID: 2
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1591901714}
+          m_TargetAssemblyTypeName: Controller_level, Assembly-CSharp
+          m_MethodName: FireLaser
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
+  - eventID: 3
+    callback:
+      m_PersistentCalls:
+        m_Calls:
+        - m_Target: {fileID: 1591901714}
+          m_TargetAssemblyTypeName: Controller_level, Assembly-CSharp
+          m_MethodName: StopFiring
+          m_Mode: 1
+          m_Arguments:
+            m_ObjectArgument: {fileID: 0}
+            m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+            m_IntArgument: 0
+            m_FloatArgument: 0
+            m_StringArgument: 
+            m_BoolArgument: 0
+          m_CallState: 2
 --- !u!1 &987893106
 GameObject:
   m_ObjectHideFlags: 0
@@ -890,5 +924,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   offsetY: 1
   laserPlayer: {fileID: 2732812151105339523, guid: 8bb740a5fd8852d4db96508787578567, type: 3}
-  fireRate: 20
+  fireRate: 5
   yOffsetoflaser: 1

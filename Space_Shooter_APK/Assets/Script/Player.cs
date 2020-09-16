@@ -11,9 +11,12 @@ public class Player : MonoBehaviour
     [SerializeField] float fireRate = 1f;
     [SerializeField] float yOffsetoflaser;
 
+
+    bool isPressedFire;
+
     void Start()
     {
-        StartCoroutine(PrintAndWait());  //never call a coroutine in the update function.
+       
       
     }
 
@@ -23,13 +26,7 @@ public class Player : MonoBehaviour
         Move();       
     }
 
-    IEnumerator PrintAndWait()    //debugging purpose only
-    {
-        Debug.Log("hi");
-        yield return new WaitForSeconds(5);
-        Debug.Log("hello00");
-    }
-
+   
     void Move()
     {
         if(Input.touchCount>0)  //checks if the we touches the screen
