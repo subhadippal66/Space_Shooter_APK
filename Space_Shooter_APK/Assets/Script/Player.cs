@@ -13,6 +13,7 @@ public class Player : MonoBehaviour
 
     void Start()
     {
+        StartCoroutine(PrintAndWait());  //never call a coroutine in the update function.
       
     }
 
@@ -20,6 +21,13 @@ public class Player : MonoBehaviour
     void Update()
     {
         Move();       
+    }
+
+    IEnumerator PrintAndWait()    //debugging purpose only
+    {
+        Debug.Log("hi");
+        yield return new WaitForSeconds(5);
+        Debug.Log("hello00");
     }
 
     void Move()
@@ -41,9 +49,12 @@ public class Player : MonoBehaviour
 
     public void Fire()
     {
-        Vector3 laserPos = new Vector3(transform.position.x, transform.position.y + yOffsetoflaser, transform.position.z);
-        GameObject laser_001 = Instantiate(laserPlayer,laserPos , Quaternion.identity) as GameObject;
-        laser_001.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, fireRate);
-        Destroy(laser_001, 2f);
+        if (Input.touchCount>1)
+        {
+            Vector3 laserPos = new Vector3(transform.position.x, transform.position.y + yOffsetoflaser, transform.position.z);
+            GameObject laser_001 = Instantiate(laserPlayer, laserPos, Quaternion.identity) as GameObject;
+            laser_001.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, fireRate);
+            Destroy(laser_001, 2f);
+        }
     }
 }
