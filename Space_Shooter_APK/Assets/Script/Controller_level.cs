@@ -6,6 +6,8 @@ public class Controller_level : MonoBehaviour
 {
     Player player_;
     bool isButtonDown = false;
+    bool stopFiring;
+    [SerializeField] float firingSpeed = 1f;
 
 
     void Start()
@@ -18,16 +20,33 @@ public class Controller_level : MonoBehaviour
     {
         if (isButtonDown)
         {
+            MakefireVariableFalse();
             player_.Fire();
         }
     }
 
     public void FireLaser()
     {
-        isButtonDown = true;
+        stopFiring = false;
+        MakefireVariableTrue();
     }
     public void StopFiring()
     {
+        stopFiring = true;
         isButtonDown = false;
+    }
+
+    public void MakefireVariableTrue()
+    {
+        isButtonDown = true;
+    }
+
+    void MakefireVariableFalse()
+    {
+        isButtonDown = false;
+        if (stopFiring == false)
+        {
+            Invoke("MakefireVariableTrue", firingSpeed);
+        }
     }
 }

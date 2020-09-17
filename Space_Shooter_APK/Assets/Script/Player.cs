@@ -51,7 +51,6 @@ public class Player : MonoBehaviour
             Vector3 laserPos = new Vector3(transform.position.x, transform.position.y + yOffsetoflaser, transform.position.z);
             GameObject laser_001 = Instantiate(laserPlayer, laserPos, Quaternion.identity) as GameObject;
             laser_001.GetComponent<Rigidbody2D>().velocity = new Vector2(0f, fireRate);
-            Destroy(laser_001, 2f);
         }
     }
 }
