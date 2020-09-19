@@ -55,9 +55,10 @@
     <Analyzer Include="C:\Program Files (x86)\Microsoft Visual Studio Tools for Unity\16.0\Analyzers\Microsoft.Unity.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Assets\Script\DestroyLaser.cs" />
     <Compile Include="Assets\Script\Player.cs" />
     <Compile Include="Assets\Script\Controller_level.cs" />
-    <Compile Include="Assets\Script\DestroyLaser.cs" />
+    <Compile Include="Assets\Script\EnemyPathing.cs" />
   </ItemGroup>
   <ItemGroup>
     <Reference Include="UnityEngine">
